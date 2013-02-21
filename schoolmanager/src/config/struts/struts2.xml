@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.1.7//EN"
+    "http://struts.apache.org/dtds/struts-2.1.7.dtd">
+<struts>
+
+	<include file="struts-default.xml" />
+	<!--上传文件的临时文件夹为tmp -->
+	<constant name="struts.multipart.saveDir" value="/tmp"></constant>
+	<!-- 设置字符集为utf-8 -->
+	<constant name="struts.i18n.encoding" value="UTF-8" />
+	<!-- 配置国际化资源文件 -->
+	<constant name="struts.custom.i18n.resources" value="messageResource_zh_CN"></constant>
+	<!-- 启动静态方法调用 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
+	<package name="sys" extends="struts-default">
+		<result-types>
+			<result-type name="captchaImage"
+				class="com.google.code.jcaptcha4struts2.core.actions.support.CaptchaImageResult" />
+		</result-types>
+		<interceptors>
+			
+			<!-- 配置使用jcaptha4struts2组件完成对验证码拦截器 -->
+			<interceptor name="jcaptcha"
+				class="org.he.common.jcaptcha4struts2.JCaptchaValidationIntercepter"></interceptor>
+			<!-- 配置验证码拦截器栈 -->
+			<interceptor-stack name="valStack">
+				<interceptor-ref name="defaultStack"></interceptor-ref>
+				<interceptor-ref name="jcaptcha"></interceptor-ref>
+			</interceptor-stack>
+		</interceptors>
+
+	</package>
+</struts>
