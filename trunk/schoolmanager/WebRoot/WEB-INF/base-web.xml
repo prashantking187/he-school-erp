@@ -1,0 +1,125 @@
+	<!-- 配置Spring配置文件的位置 -->
+<context-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>classpath:config/spring/applicationContext.xml</param-value>
+</context-param>
+	<!-- 使用ContextLoaderListener初始化Spring容器 -->
+<listener>
+	<listener-class>org.springframework.web.context.ContextLoaderListener
+	</listener-class>
+</listener>
+	<!-- 用于获取spring的webApplicationContext -->
+<listener>
+	<listener-class>org.he.common.spring.support.SpringInit
+	</listener-class>
+</listener>
+	<!-- 定义spring web作用域的Filter -->
+<filter>
+	<filter-name>requestContextFilter</filter-name>
+	<filter-class>org.springframework.web.filter.RequestContextFilter
+	</filter-class>
+</filter>
+	<!-- 让requestContextFilter拦截所有请求 -->
+<filter-mapping>
+	<filter-name>requestContextFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+
+	<!-- 定义Struts 2的核心Filter -->
+<filter>
+	<filter-name>struts2</filter-name>
+	<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+	</filter-class>
+	<init-param>
+		<param-name>config</param-name>
+		<param-value>struts-default.xml,struts-plugin.xml,config/struts/struts2.xml
+		</param-value>
+	</init-param>
+</filter>
+	<!-- 让Struts 2的核心Filter拦截所有请求 -->
+<filter-mapping>
+	<filter-name>struts2</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+
+	<!-- 定义Web应用的首页 -->
+<welcome-file-list>
+</welcome-file-list>
+
+
+<display-name>ralasafe</display-name>
+
+	<!--
+		LoginFilter & UrlAclFilter are optional. This is an example config.
+	-->
+<filter>
+	<filter-name>encoding</filter-name>
+	<filter-class>filter.SetCharacterEncodingFilter</filter-class>
+	<init-param>
+		<param-name>encoding</param-name>
+		<param-value>utf-8</param-value>
+	</init-param>
+</filter>
+<filter-mapping>
+	<filter-name>encoding</filter-name>
+	<url-pattern>/ralasafe/*</url-pattern>
+</filter-mapping>
+<filter>
+	<filter-name>ralasafe/LoginFilter</filter-name>
+	<filter-class>org.ralasafe.webFilter.LoginFilter</filter-class>
+	<init-param>
+		<param-name>loginPage</param-name>
+		<param-value>/ralasafe/demo/login.jsp</param-value>
+	</init-param>
+	<init-param>
+		<param-name>uniqueFieldsParams</param-name>
+		<param-value>loginName</param-value>
+	</init-param>
+	<init-param>
+		<param-name>passwordParam</param-name>
+		<param-value>password</param-value>
+	</init-param>
+	<!--
+		init-param> <param-name>encryptMethod</param-name>
+		<param-value>shahex</param-value> </init-param
+	-->
+</filter>
+<filter>
+	<filter-name>ralasafe/UrlAclFilter</filter-name>
+	<filter-class>org.ralasafe.webFilter.UrlAclFilter</filter-class>
+	<init-param>
+		<param-name>loginPage</param-name>
+		<param-value>/ralasafe/demo/login.jsp</param-value>
+	</init-param>
+	<init-param>
+		<param-name>denyPage</param-name>
+		<param-value>/ralasafe/demo/noPrivilege.jsp</param-value>
+	</init-param>
+</filter>
+<filter-mapping>
+	<filter-name>ralasafe/LoginFilter</filter-name>
+	<url-pattern>/ralasafe/demo/*</url-pattern>
+</filter-mapping>
+<filter-mapping>
+	<filter-name>ralasafe/UrlAclFilter</filter-name>
+	<url-pattern>/ralasafe/demo/*</url-pattern>
+</filter-mapping>
+	<!-- End -->
+
+<servlet>
+	<servlet-name>ralasafe</servlet-name>
+	<servlet-class>org.ralasafe.servlet.RalasafeController</servlet-class>
+	<init-param>
+		<param-name>repositoryDir</param-name>
+		<param-value>/home/julian/workspace/ralasafe/xml</param-value>
+	</init-param>
+	<init-param>
+		<param-name>secured</param-name>
+		<param-value>false</param-value>
+	</init-param>
+	<load-on-startup>4</load-on-startup>
+</servlet>
+<servlet-mapping>
+	<servlet-name>ralasafe</servlet-name>
+	<url-pattern>*.rls</url-pattern>
+</servlet-mapping>
