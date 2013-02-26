@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.Iterator;
 
 import org.he.base.dao.BaseDao;
+import org.he.common.spring.support.SpringInit;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.springframework.orm.hibernate3.HibernateCallback;

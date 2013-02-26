@@ -15,6 +15,7 @@ package org.he.common.spring.support;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.sql.DataSource;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
@@ -51,7 +52,9 @@ public class SpringInit implements ServletContextListener{
     
     public void contextInitialized(ServletContextEvent event) {
 	context = WebApplicationContextUtils.getWebApplicationContext(event.getServletContext());
-
     }
-
+    
+    public DataSource getDataSource(){
+    	return (DataSource)context.getBean("dataSource");
+    }
 }
