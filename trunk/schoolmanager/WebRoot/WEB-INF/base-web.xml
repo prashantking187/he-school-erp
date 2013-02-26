@@ -1,0 +1,46 @@
+	<!-- 配置Spring配置文件的位置 -->
+<context-param>
+	<param-name>contextConfigLocation</param-name>
+	<param-value>classpath:config/spring/applicationContext.xml</param-value>
+</context-param>
+	<!-- 使用ContextLoaderListener初始化Spring容器 -->
+<listener>
+	<listener-class>org.springframework.web.context.ContextLoaderListener
+	</listener-class>
+</listener>
+	<!-- 用于获取spring的webApplicationContext -->
+<listener>
+	<listener-class>org.he.common.spring.support.SpringInit
+	</listener-class>
+</listener>
+	<!-- 定义spring web作用域的Filter -->
+<filter>
+	<filter-name>requestContextFilter</filter-name>
+	<filter-class>org.springframework.web.filter.RequestContextFilter
+	</filter-class>
+</filter>
+	<!-- 让requestContextFilter拦截所有请求 -->
+<filter-mapping>
+	<filter-name>requestContextFilter</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+
+	<!-- 定义Struts 2的核心Filter -->
+<filter>
+	<filter-name>struts2</filter-name>
+	<filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter
+	</filter-class>
+	<init-param>
+		<param-name>config</param-name>
+		<param-value>struts-default.xml,struts-plugin.xml,config/struts/struts2.xml
+		</param-value>
+	</init-param>
+</filter>
+	<!-- 让Struts 2的核心Filter拦截所有请求 -->
+<filter-mapping>
+	<filter-name>struts2</filter-name>
+	<url-pattern>/*</url-pattern>
+</filter-mapping>
+
+
+
