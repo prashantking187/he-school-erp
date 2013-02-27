@@ -51,13 +51,13 @@
             <column name="QQ" length="150" />
         </property>
         <property name="hobby" type="java.lang.String">
-            <column name="HOBBY" />
+            <column name="HOBBY" length="9999999"/>
         </property>
-        <property name="picture" type="java.lang.String">
+        <property name="picture" type="java.lang.Blob">
             <column name="PICTURE" />
         </property>
         <property name="remark" type="java.lang.String">
-            <column name="REMARK" />
+            <column name="REMARK" length="9999999"/>
         </property>
     </class>
 </hibernate-mapping>
