@@ -116,4 +116,22 @@ public interface BaseService<T> {
 	 *            The entity identifier
 	 */
 	public void evict(T t);
+	
+
+	/**
+	 * <p>
+	 * Title: evictEntity
+	 * </p>
+	 * <p>
+	 * Description:  根据id获取实体对象
+	 * </p>
+	 * 
+	 * @param entityClass
+	 *            The entity class.
+	 * @param id
+	 *            The entity identifier
+	 */
+	public T getEntity(Class<T> entityClass, Serializable id);
+	
+	
 }

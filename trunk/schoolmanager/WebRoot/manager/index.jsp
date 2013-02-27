@@ -11,9 +11,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>学校管理系统</title>
-<link rel="stylesheet" type="text/css" href="<%= basePath %>/manager/back_css/style.css" />
-<script type="text/javascript" src="<%= basePath %>/manager/back_css/jquery.min.js"></script>
-<script type="text/javascript" src="<%= basePath %>/manager/back_css/ddaccordion.js"></script>
+<base href="<%= basePath %>"/>
+<link rel="stylesheet" type="text/css" href="manager/back_css/style.css" />
+<script type="text/javascript" src="manager/back_css/jquery.min.js"></script>
+<script type="text/javascript" src="manager/back_css/ddaccordion.js"></script>
 <script type="text/javascript">
 	ddaccordion.init({
 		headerclass : "submenuheader", //Shared CSS class name of headers group
@@ -27,8 +28,8 @@
 		persiststate : true, //persist state of opened contents within browser session?
 		toggleclass : [ "", "" ], //Two CSS classes to be applied to the header when it's collapsed and expanded, respectively ["class1", "class2"]
 		togglehtml : [ "suffix",
-				"<img src='<%= basePath %>/manager/back_css/images/plus.gif' class='statusicon' />",
-				"<img src='<%= basePath %>/manager/back_css/images/minus.gif' class='statusicon' />" ], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
+				"<img src='manager/back_css/images/plus.gif' class='statusicon' />",
+				"<img src='manager/back_css/images/minus.gif' class='statusicon' />" ], //Additional HTML added to the header when it's collapsed and expanded, respectively  ["position", "html1", "html2"] (see docs)
 		animatespeed : "fast", //speed of animation: integer in milliseconds (ie: 200), or keywords "fast", "normal", or "slow"
 		oninit : function(headers, expandedindices) { //custom code to run when headers have initalized
 			//do nothing
@@ -38,8 +39,8 @@
 		}
 	})
 </script>
-<script src="<%= basePath %>/manager/back_css/jquery.jclock-1.2.0.js.txt" type="text/javascript"></script>
-<script type="text/javascript" src="<%= basePath %>/manager/back_css/jconfirmaction.jquery.js"></script>
+<script src="manager/back_css/jquery.jclock-1.2.0.js.txt" type="text/javascript"></script>
+<script type="text/javascript" src="manager/back_css/jconfirmaction.jquery.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		$('.ask').jConfirmAction();
@@ -48,15 +49,14 @@
 <script type="text/javascript">
 	$(function($) {
 		$('.jclock').jclock();
-		$('#menu').load("meun.jsp");
+		$('#menu').load("manager/meun.jsp");
 	});
-	var imagesPath = "back_css/img/";//图片地址
 </script>
 
 <script language="javascript" type="text/javascript"
-	src="<%= basePath %>/manager/back_css/niceforms.js"></script>
+	src="manager/back_css/niceforms.js"></script>
 <link rel="stylesheet" type="text/css" media="all"
-	href="<%= basePath %>/manager/back_css/niceforms-default.css" />
+	href="manager/back_css/niceforms-default.css" />
 
 </head>
 <body>
@@ -64,7 +64,7 @@
 
 		<div class="header">
 			<div class="logo">
-				<a href="#"><img src="<%= basePath %>/manager/back_css/images/logo.gif" alt="" title=""
+				<a href="#"><img src="manager/back_css/images/logo.gif" alt="" title=""
 					border="0" />
 				</a>
 			</div>
@@ -92,7 +92,7 @@
 							<input type="text" name="" class="search_input"
 								value="search keyword" onclick="this.value=''"/> <input
 								type="image" class="search_submit"
-								src="<%= basePath %>/manager/back_css/images/search.png" />
+								src="manager/back_css/images/search.png" />
 						</form>
 					</div>
 
@@ -154,7 +154,7 @@
 						<div class="sidebar_box_top"></div>
 						<div class="sidebar_box_content">
 							<h3>User help desk</h3>
-							<img src="<%= basePath %>/manager/back_css/images/info.png" alt="" title=""
+							<img src="manager/back_css/images/info.png" alt="" title=""
 								class="sidebar_icon_right" />
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 								sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -167,7 +167,7 @@
 						<div class="sidebar_box_top"></div>
 						<div class="sidebar_box_content">
 							<h4>Important notice</h4>
-							<img src="<%= basePath %>/manager/back_css/images/notice.png" alt="" title=""
+							<img src="manager/back_css/images/notice.png" alt="" title=""
 								class="sidebar_icon_right" />
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 								sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -180,7 +180,7 @@
 						<div class="sidebar_box_top"></div>
 						<div class="sidebar_box_content">
 							<h5>Download photos</h5>
-							<img src="<%= basePath %>/manager/back_css/images/photo.png" alt="" title=""
+							<img src="manager/back_css/images/photo.png" alt="" title=""
 								class="sidebar_icon_right" />
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 								sed do eiusmod tempor incididunt ut labore et dolore magna
@@ -193,7 +193,7 @@
 						<div class="sidebar_box_top"></div>
 						<div class="sidebar_box_content">
 							<h3>To do List</h3>
-							<img src="<%= basePath %>/manager/back_css/images/info.png" alt="" title=""
+							<img src="manager/back_css/images/info.png" alt="" title=""
 								class="sidebar_icon_right" />
 							<ul>
 								<li>Lorem ipsum dolor sit amet, consectetur adipisicing
@@ -255,11 +255,11 @@
 								<td>12/05/2010</td>
 
 								<td><a href="#"><img
-										src="<%= basePath %>/manager/back_css/images/user_edit.png" alt="" title="" border="0" />
+										src="manager/back_css/images/user_edit.png" alt="" title="" border="0" />
 								</a>
 								</td>
 								<td><a href="#" class="ask"><img
-										src="<%= basePath %>/manager/back_css/images/trash.png" alt="" title="" border="0" />
+										src="manager/back_css/images/trash.png" alt="" title="" border="0" />
 								</a>
 								</td>
 							</tr>
@@ -273,11 +273,11 @@
 								<td>12/05/2010</td>
 
 								<td><a href="#"><img
-										src="<%= basePath %>/manager/back_css/images/user_edit.png" alt="" title="" border="0" />
+										src="manager/back_css/images/user_edit.png" alt="" title="" border="0" />
 								</a>
 								</td>
 								<td><a href="#" class="ask"><img
-										src="<%= basePath %>/manager/back_css/images/trash.png" alt="" title="" border="0" />
+										src="manager/back_css/images/trash.png" alt="" title="" border="0" />
 								</a>
 								</td>
 							</tr>
@@ -291,11 +291,11 @@
 								<td>12/05/2010</td>
 
 								<td><a href="#"><img
-										src="<%= basePath %>/manager/back_css/images/user_edit.png" alt="" title="" border="0" />
+										src="manager/back_css/images/user_edit.png" alt="" title="" border="0" />
 								</a>
 								</td>
 								<td><a href="#" class="ask"><img
-										src="<%= basePath %>/manager/back_css/images/trash.png" alt="" title="" border="0" />
+										src="manager/back_css/images/trash.png" alt="" title="" border="0" />
 								</a>
 								</td>
 							</tr>
@@ -309,11 +309,11 @@
 								<td>12/05/2010</td>
 
 								<td><a href="#"><img
-										src="<%= basePath %>/manager/back_css/images/user_edit.png" alt="" title="" border="0" />
+										src="manager/back_css/images/user_edit.png" alt="" title="" border="0" />
 								</a>
 								</td>
 								<td><a href="#" class="ask"><img
-										src="<%= basePath %>/manager/back_css/images/trash.png" alt="" title="" border="0" />
+										src="manager/back_css/images/trash.png" alt="" title="" border="0" />
 								</a>
 								</td>
 							</tr>
@@ -326,11 +326,11 @@
 								<td>12/05/2010</td>
 
 								<td><a href="#"><img
-										src="<%= basePath %>/manager/back_css/images/user_edit.png" alt="" title="" border="0" />
+										src="manager/back_css/images/user_edit.png" alt="" title="" border="0" />
 								</a>
 								</td>
 								<td><a href="#" class="ask"><img
-										src="<%= basePath %>/manager/back_css/images/trash.png" alt="" title="" border="0" />
+										src="manager/back_css/images/trash.png" alt="" title="" border="0" />
 								</a>
 								</td>
 							</tr>
@@ -344,11 +344,11 @@
 								<td>12/05/2010</td>
 
 								<td><a href="#"><img
-										src="<%= basePath %>/manager/back_css/images/user_edit.png" alt="" title="" border="0" />
+										src="manager/back_css/images/user_edit.png" alt="" title="" border="0" />
 								</a>
 								</td>
 								<td><a href="#" class="ask"><img
-										src="<%= basePath %>/manager/back_css/images/trash.png" alt="" title="" border="0" />
+										src="manager/back_css/images/trash.png" alt="" title="" border="0" />
 								</a>
 								</td>
 							</tr>
@@ -517,7 +517,7 @@
 			</div>
 			<div class="right_footer">
 				<a href="http://indeziner.com"><img
-					src="<%= basePath %>/manager/back_css/images/indeziner_logo.gif" alt="" title="" border="0" />
+					src="manager/back_css/images/indeziner_logo.gif" alt="" title="" border="0" />
 				</a>
 			</div>
 

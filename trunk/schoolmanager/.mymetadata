@@ -3,7 +3,7 @@
   type="WEB"
   name="schoolmanager"
   id="myeclipse.1360741695813"
-  context-root="/base"
+  context-root="/a"
   j2ee-spec="5.0"
   archive="schoolmanager.war">
   <attributes>

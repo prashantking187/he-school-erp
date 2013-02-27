@@ -17,6 +17,7 @@ var textareaTopPadding = 10;
 var textareaSidePadding = 10;
 
 //Global Variables
+var imagesPath = "manager/back_css/img/";//图片地址
 var NF = new Array();
 var isIE = false;
 var resizeTest = 1;
