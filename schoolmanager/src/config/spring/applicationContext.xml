@@ -52,13 +52,21 @@
 		<property name="hibernateProperties">
 			<props>
 				<prop key="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+			<!-- 	<prop key="hibernate.hbm2ddl.auto">validate</prop> 
+				<prop key="hibernate.jdbc.batch_size">0</prop> -->
 			</props>
 		</property>
-	<!-- <property name="mappingResources">
+	 <property name="mappingResources">
 			<list>
-				<value></value>
+				<value>org/rschool/entity/hibernate/RAcademy.hbm.xml</value>
+				<value>org/rschool/entity/hibernate/RClass.hbm.xml</value>
+				<value>org/rschool/entity/hibernate/RResource.hbm.xml</value>
+				<value>org/rschool/entity/hibernate/RResourceType.hbm.xml</value>
+				<value>org/rschool/entity/hibernate/RSchool.hbm.xml</value>
+				<value>org/rschool/entity/hibernate/RStudent.hbm.xml</value>
+				<value>org/rschool/entity/hibernate/RTeacher.hbm.xml</value>
 			</list>
-		</property> -->	
+		</property> 
 	</bean>
 	<!-- 配置Hibernate的局部事务管理器，使用HibernateTransactionManager类 -->
 	<!-- 该类实现PlatformTransactionManager接口，是针对Hibernate的特定实现 -->
@@ -83,12 +91,16 @@
 		<!-- 指定在leePointcut切入点应用txAdvice事务增强处理 -->
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="leePointcut" />
 	</aop:config>
-	<!-- 引入dao层配置 -->
+	<!-- 引入基本配置 -->
 	<import resource="classpath:config/spring/base.xml" />
+	<!-- 引入dao层配置 -->
+	<import resource="classpath:config/spring/dao.xml" />
 
 	<!-- 定义业务逻辑组件模板 -->
 	<!-- 为之注入DAO组件 -->
 	<bean id="serviceTemplate" abstract="true" lazy-init="true"
 		p:baseDao-ref="baseDao" />
-
+	<bean id="backPageService" class="org.rschool.service.impl.BackPageServiceImpl">
+		<property name="pageDao" ref="pageDao"></property>
+	</bean>
 </beans>

@@ -6,7 +6,7 @@ import org.he.base.dao.BaseDao;
 import org.he.base.service.BaseService;
 
 public class BaseServiceImpl<T> implements BaseService<T> {
-	private BaseDao baseDao;
+	private BaseDao<T> baseDao;
 	
 	
 
@@ -40,6 +40,15 @@ public class BaseServiceImpl<T> implements BaseService<T> {
 
 	public void evict(T t) {
 		baseDao.evict(t);
+	}
+
+	/* (非 Javadoc) 
+	* <p>Title: getEntity</p>
+	* <p>Description: </p>
+	* @see org.he.base.service.BaseService#getEntity(java.lang.Class, java.io.Serializable) 
+	*/ 
+	public T getEntity(Class<T> entityClass, Serializable id) {
+		return  baseDao.getEntity(entityClass, id);
 	}
 
 }

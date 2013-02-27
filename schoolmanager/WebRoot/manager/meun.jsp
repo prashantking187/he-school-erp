@@ -7,7 +7,7 @@
 %>	
 	
 				<ul>
-					<li><a class="current" href="<%=basePath %>manager/index.jsp">系统功能</a>
+					<li><a class="current" href="manager/index.jsp">系统功能</a>
 						<ul>
 							<li><a href="" title="" >个人资料</a>
 							</li>
@@ -18,9 +18,9 @@
 					</a>
 					<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]-->
 						<ul>
-							<li><a href="<%=basePath %>manager/student.jsp" title="">学生管理</a>
+							<li><a href="school/studentlist.action" title="">学生管理</a>
 							</li>
-							<li><a href="" title="">教师管理</a>
+							<li><a href="manager/school/teacherList.jsp" title="">教师管理</a>
 							</li>
 					</li>
 					<li><a href="" title="">Lorem ipsum dolor sit amet</a>

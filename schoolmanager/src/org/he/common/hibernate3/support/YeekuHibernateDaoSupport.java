@@ -122,7 +122,7 @@ public class YeekuHibernateDaoSupport
 	 * @param values 如果hql有多个个参数需要传入，values就是传入hql的参数数组
 	 * @return 所有记录条数
 	 */
-	public int getRowCOunt(final String hql, final Object... values)
+	public int getCount(final String hql, final Object... values)
 	{
 		//通过一个HibernateCallback对象来执行查询
 		List list = getHibernateTemplate()

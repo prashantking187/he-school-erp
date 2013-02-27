@@ -13,13 +13,13 @@
 	<constant name="struts.custom.i18n.resources" value="messageResource_zh_CN"></constant>
 	<!-- 启动静态方法调用 -->
 	<constant name="struts.ognl.allowStaticMethodAccess" value="true"></constant>
-	<package name="sys" extends="struts-default">
+	<package name="base" extends="struts-default">
 		<result-types>
 			<result-type name="captchaImage"
 				class="com.google.code.jcaptcha4struts2.core.actions.support.CaptchaImageResult" />
 		</result-types>
 		<interceptors>
-			
+
 			<!-- 配置使用jcaptha4struts2组件完成对验证码拦截器 -->
 			<interceptor name="jcaptcha"
 				class="org.he.common.jcaptcha4struts2.JCaptchaValidationIntercepter"></interceptor>
@@ -30,5 +30,16 @@
 			</interceptor-stack>
 		</interceptors>
 
+	</package>
+
+	<package name="schoolmgr" namespace="/school" extends="base">
+		<action name="studentlist" class="org.rschool.action.SchoolAction"
+			method="getStudentPage">
+			<result>/manager/school/studentList.jsp</result>
+		</action>
+		<action name="student" class="org.rschool.action.SchoolAction"
+			method="showStudent">
+				<result>/manager/school/student.jsp</result>
+			</action>
 	</package>
 </struts>
