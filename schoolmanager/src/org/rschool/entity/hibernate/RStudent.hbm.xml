@@ -44,9 +44,9 @@
             <column name="QQ" length="150" />
         </property>
         <property name="hobby" type="java.lang.String">
-            <column name="HOBBY" />
+            <column name="HOBBY" length="9999999"/>
         </property>
-        <property name="pic" type="java.lang.String">
+        <property name="pic" type="java.lang.Blob">
             <column name="PIC">
                 <comment>图片</comment>
             </column>
@@ -55,7 +55,7 @@
             <column name="SCORE" precision="10" />
         </property>
         <property name="remark" type="java.lang.String">
-            <column name="REMARK" />
+            <column name="REMARK" length="9999999"/>
         </property>
     </class>
 </hibernate-mapping>
