@@ -1,5 +1,7 @@
 package org.rschool.entity.hibernate;
 
+import java.sql.Blob;
+
 /**
  * RTeacher entity. @author MyEclipse Persistence Tools
  */
@@ -23,7 +25,7 @@ public class RTeacher implements java.io.Serializable {
 	private String email;
 	private String qq;
 	private String hobby;
-	private String picture;
+	private Blob picture;
 	private String remark;
 
 	// Constructors
@@ -36,7 +38,7 @@ public class RTeacher implements java.io.Serializable {
 	public RTeacher(String name, String tno, String title, String dep,
 			String direction, String degree, Long schoolid, Long academyid,
 			String tel1, String tel2, String tel3, String email, String qq,
-			String hobby, String picture, String remark) {
+			String hobby, Blob picture, String remark) {
 		this.name = name;
 		this.tno = tno;
 		this.title = title;
@@ -177,11 +179,18 @@ public class RTeacher implements java.io.Serializable {
 		this.hobby = hobby;
 	}
 
-	public String getPicture() {
-		return this.picture;
+
+	/** 
+	 * @return picture 
+	 */
+	public Blob getPicture() {
+		return picture;
 	}
 
-	public void setPicture(String picture) {
+	/** 
+	 * @param picture 要设置的 picture 
+	 */
+	public void setPicture(Blob picture) {
 		this.picture = picture;
 	}
 

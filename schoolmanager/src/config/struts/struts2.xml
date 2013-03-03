@@ -33,13 +33,37 @@
 	</package>
 
 	<package name="schoolmgr" namespace="/school" extends="base">
-		<action name="studentlist" class="org.rschool.action.SchoolAction"
+		<action name="showstudentpage" class="org.rschool.action.SchoolAction"
 			method="getStudentPage">
 			<result>/manager/school/studentList.jsp</result>
 		</action>
-		<action name="student" class="org.rschool.action.SchoolAction"
+		<action name="showstudent" class="org.rschool.action.SchoolAction"
 			method="showStudent">
 				<result>/manager/school/student.jsp</result>
-			</action>
+		</action>
+		<action name="showteacher" class="org.rschool.action.SchoolAction"
+			method="showTeacher" >
+			<result>/manager/school/teacher.jsp</result>
+		</action>
+		<action name="addteacher" class="org.rschool.action.SchoolAction"
+			method = "addTeacher" >
+			<result type="redirectAction">
+				<param name="actionName">showteacherpage</param>
+				<param name="message">${message}</param>
+				<param name="status">${status}</param>
+			</result>
+		</action>
+		<action name="updateteacher" class="org.rschool.action.SchoolAction"
+			method="updateTeacher" >
+			<result type="redirectAction">
+				<param name="actionName">showteacherpage</param>
+				<param name="message">${message}</param>
+				<param name="status">${status}</param>
+			</result>
+		</action>
+		<action name="showteacherpage" class="org.rschool.action.SchoolAction" 
+			method="getTeacherPage">
+			<result>/manager/school/teacherList.jsp</result>	
+		</action>
 	</package>
 </struts>

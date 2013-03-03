@@ -72,14 +72,9 @@ public class PageDaoImpl extends YeekuHibernateDaoSupport implements PageDao {
 	public int getTeacherCount(Object... values) {
 		hql = "from RTeacher where 1=1 ";
 		if(values[0]!=null&&!"".equals(values[0])){
-			hql+=" ";
-			
+			hql+=" and academyid =  " + values[0];
 		}
-////		if(){
-//			
-//			
-//		}
-		return 0;
+		return  getCount(hql);
 	}
 
 	/* (非 Javadoc) 
@@ -89,8 +84,11 @@ public class PageDaoImpl extends YeekuHibernateDaoSupport implements PageDao {
 	*/ 
 	public List<RTeacher> getTeacherList(int offset, int pageSize,
 			Object... values) {
-		// TODO Auto-generated method stub
-		return null;
+		hql = "from RTeacher where 1=1 ";
+		if(values[0]!=null&&!"".equals(values[0])){
+			hql+=" and academyid = " + values[0];
+		}
+		return  findByPage(hql, offset, pageSize);
 	}
 
 	/* (非 Javadoc) 
@@ -99,8 +97,11 @@ public class PageDaoImpl extends YeekuHibernateDaoSupport implements PageDao {
 	* @see org.rschool.dao.PageDao#getAcademyCount(java.lang.Object[]) 
 	*/ 
 	public int getAcademyCount(Object... values) {
-		// TODO Auto-generated method stub
-		return 0;
+		hql = "from RAcademy where 1=1 ";
+		if(values[0]!=null&&!"".equals(values[0])){
+			hql+=" and schoolid = " + values[0];
+		}
+		return getCount(hql);
 	}
 
 	/* (非 Javadoc) 
@@ -110,8 +111,11 @@ public class PageDaoImpl extends YeekuHibernateDaoSupport implements PageDao {
 	*/ 
 	public List<RAcademy> getAcademyList(int offset, int pageSize,
 			Object... values) {
-		// TODO Auto-generated method stub
-		return null;
+		hql = "from RAcademy where 1=1 ";
+		if(values[0]!=null&&!"".equals(values[0])){
+			hql+=" and schoolid = " + values[0];
+		}
+		return findByPage(hql, offset, pageSize);
 	}
 
 	/* (非 Javadoc) 
@@ -120,8 +124,14 @@ public class PageDaoImpl extends YeekuHibernateDaoSupport implements PageDao {
 	* @see org.rschool.dao.PageDao#getClassList(int, int, java.lang.Object[]) 
 	*/ 
 	public List<RClass> getClassList(int offset, int pageSize, Object... values) {
-		// TODO Auto-generated method stub
-		return null;
+		hql = " from RClass where 1=1 ";
+		if(values[0]!=null&&!"".equals(values[0])){
+			hql+=" and schoolid = " + values[0];
+		}
+		if(values[1]!=null&&!"".equals(values[1])){
+			hql+=" and academyid = " + values[1];
+		}
+		return findByPage(hql, offset, pageSize);
 	}
 
 	/* (非 Javadoc) 
@@ -130,8 +140,14 @@ public class PageDaoImpl extends YeekuHibernateDaoSupport implements PageDao {
 	* @see org.rschool.dao.PageDao#getClassCount(java.lang.Object[]) 
 	*/ 
 	public int getClassCount(Object... values) {
-		// TODO Auto-generated method stub
-		return 0;
+		hql = " from RClass where 1=1 ";
+		if(values[0]!=null&&!"".equals(values[0])){
+			hql+=" and schoolid = " + values[0];
+		}
+		if(values[1]!=null&&!"".equals(values[1])){
+			hql+=" and academyid = " + values[1];
+		}
+		return getCount(hql);
 	}
 
 }

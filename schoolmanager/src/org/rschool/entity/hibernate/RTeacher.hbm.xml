@@ -9,7 +9,9 @@
         <comment>教师信息表</comment>
         <id name="id" type="java.lang.Long">
             <column name="ID" precision="10" scale="0" />
-            <generator class="sequence" />
+            <generator class="sequence" >
+            	<param name="sequence">teacher_pk_sequences</param>
+            </generator>
         </id>
         <property name="name" type="java.lang.String">
             <column name="NAME" length="150" />
@@ -53,7 +55,7 @@
         <property name="hobby" type="java.lang.String">
             <column name="HOBBY" length="9999999"/>
         </property>
-        <property name="picture" type="java.lang.Blob">
+        <property name="picture" type="java.sql.Blob">
             <column name="PICTURE" />
         </property>
         <property name="remark" type="java.lang.String">

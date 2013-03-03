@@ -1,5 +1,8 @@
 package org.rschool.entity.hibernate;
 
+import java.sql.Blob;
+
+
 /**
  * RStudent entity. @author MyEclipse Persistence Tools
  */
@@ -20,7 +23,7 @@ public class RStudent implements java.io.Serializable {
 	private String email;
 	private String qq;
 	private String hobby;
-	private String pic;
+	private java.sql.Blob pic;
 	private Double score;
 	private String remark;
 
@@ -33,7 +36,7 @@ public class RStudent implements java.io.Serializable {
 	/** full constructor */
 	public RStudent(String name, String sno, String sclass, String college,
 			String major, String tel1, String tel2, String tel3, String email,
-			String qq, String hobby, String pic, Double score, String remark) {
+			String qq, String hobby, Blob pic, Double score, String remark) {
 		this.name = name;
 		this.sno = sno;
 		this.sclass = sclass;
@@ -148,11 +151,11 @@ public class RStudent implements java.io.Serializable {
 		this.hobby = hobby;
 	}
 
-	public String getPic() {
+	public Blob getPic() {
 		return this.pic;
 	}
 
-	public void setPic(String pic) {
+	public void setPic(Blob pic) {
 		this.pic = pic;
 	}
 
