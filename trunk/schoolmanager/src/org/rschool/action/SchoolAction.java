@@ -24,6 +24,19 @@ import com.opensymphony.xwork2.ActionSupport;
 /** 
  * @ClassName: PageAction 
  * @Description:  
+ * 1.增加教师
+ * 2.批量增加教师
+ * 3.批量增加学生
+ * 4.修改学生
+ * 5.修改教师
+ * 6.增加学院
+ * 7.修改学院
+ * 8.删除学院
+ * 9.增加课程
+ * 10.修改课程
+ * 11.删除课程
+ * 12.批量录入成绩
+ * 13.修改成绩
  * @author: 黄鹤
  * @date 2013-2-26 下午2:45:19 
  *  
@@ -91,7 +104,7 @@ public class SchoolAction extends BaseAction {
 	* @Description: TODO   修改学生信息
 	* @return   
 	*/ 
-	public String updataStudent(){
+	public String updateStudent(){
 		RStudent studentTemp = (RStudent)baseService.getEntity(RStudent.class, student.getId());
 		studentTemp.setEmail(student.getEmail());
 		studentTemp.setHobby(student.getHobby());
@@ -101,15 +114,77 @@ public class SchoolAction extends BaseAction {
 	}
 	
 	
+	/** 
+	* @Title: getTeacherPage 
+	* @Description: TODO   获取教师信息分页列表
+	* @return   
+	*/ 
 	public String getTeacherPage(){
 		PageBean bean = backPageService.getTeacherPage(getCurrentPage(), getPageSize(), college, sclass);
+		setPageBean(bean);
+		return SUCCESS;
+	}
+	
+	/** 
+	* @Title: addTeacher 
+	* @Description: TODO   添加教师
+	* @return   
+	*/ 
+	public String addTeacher(){
+		baseService.save(teacher);
+		setStatus(1);
+		setMessage("添加成功！");
+		return SUCCESS;
+	}
+	  
+	/** 
+	* @Title: updateTeacher 
+	* @Description: TODO   修改教师信息
+	* @return   
+	*/ 
+	public String updateTeacher(){
+		RTeacher teacherTemp = (RTeacher) baseService.getEntity(RTeacher.class, getId());
+		teacherTemp.setDegree(teacher.getDegree());
+		teacherTemp.setHobby(teacher.getHobby());
+		teacherTemp.setTel1(teacher.getTel1());
+		teacherTemp.setEmail(teacher.getEmail());
+		baseService.update(teacherTemp);
+		setStatus(1);
+		setMessage("修改成功！");
 		return SUCCESS;
 	}
 	
 	
+	/** 
+	* @Title: deleteTeacher 
+	* @Description: TODO   删除教师信息
+	* @return   
+	*/ 
+	public String deleteTeacher(){
+		baseService.delete(teacherList);
+		return SUCCESS;
+	}
 	
 	
+	/** 
+	* @Title: showTeacher 
+	* @Description: TODO   查看教师信息
+	* @return   
+	*/ 
+	public String showTeacher(){
+		teacher = (RTeacher) baseService.getEntity(RTeacher.class, getId());
+		return SUCCESS;
+	}
 	
+	/** 
+	* @Title: batchAddStudent 
+	* @Description: TODO   从excle批量添加学生
+	* @return   
+	*/ 
+	public String batchAddStudent(){
+		
+		return SUCCESS;
+	}
 	
 	
 	/** --------------------------------setter and getter -----------------------------------------------------------------------

@@ -8,6 +8,10 @@
 */ 
 package org.he.base.action;
 
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
 import org.he.base.service.BaseService;
 import org.he.common.vo.PageBean;
 
@@ -21,6 +25,35 @@ import com.opensymphony.xwork2.ActionSupport;
  *  
  */
 public class BaseAction extends ActionSupport {
+	//began of 上传文件属性
+	private List < File > upload = new ArrayList < File > ();
+    private List < String > uploadFileNames = new ArrayList < String > ();
+    private List < String > uploadContentTypes = new ArrayList < String > ();
+
+    public List < File > getUpload( ) {
+        return this .upload;
+   } 
+    public void setUpload(List < File > upload) {
+        this .upload = upload;
+   } 
+
+    public List < String > getUploadFileName() {
+        return this .uploadFileNames;
+   } 
+    public void setUploadFileName(List < String > uploadFileNames) {
+        this .uploadFileNames = uploadFileNames;
+   } 
+
+    public List < String > getUploadContentType() {
+        return this .uploadContentTypes;
+   } 
+    public void setUploadContentType(List < String > contentTypes) {
+        this .uploadContentTypes = contentTypes;
+   } 
+    //end 
+    
+    
+    
 	/** 
 	* @Fields baseService : TODO 基本功能服务
 	*/ 
@@ -45,6 +78,7 @@ public class BaseAction extends ActionSupport {
 	*/ 
 	private int pageSize = 10;
 	private Long id ;//id
+	private int status;//代码执行结果（ 1 成功   2失败）
 
 	/** 
 	 * @return message 
@@ -122,6 +156,28 @@ public class BaseAction extends ActionSupport {
 	public void setId(Long id) {
 		this.id = id;
 	}
+
+	/** 
+	 * @return status 
+	 */
+	public int getStatus() {
+		return status;
+	}
+
+	/** 
+	 * @param status 要设置的 status 
+	 */
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	/** 
+	 * @return baseService 
+	 */
+	public BaseService getBaseService() {
+		return baseService;
+	}
+
 	
 	
 }

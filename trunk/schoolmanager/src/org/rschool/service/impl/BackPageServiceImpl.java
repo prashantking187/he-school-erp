@@ -58,6 +58,6 @@ public class BackPageServiceImpl implements BackPageService {
 		int offset = pageSize*(currentPage-1); 
 		List<RTeacher> list = pageDao.getTeacherList(offset, pageSize, college,sclass);
 		PageBean<RTeacher> page = new PageBean(currentPage, count, list, pageSize);
-		return null;
+		return page;
 	}
 }
