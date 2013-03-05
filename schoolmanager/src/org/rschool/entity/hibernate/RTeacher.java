@@ -34,6 +34,18 @@ public class RTeacher implements java.io.Serializable {
 	public RTeacher() {
 	}
 
+	
+	/** 
+	* <p>Title: </p>
+	* <p>Description: </p>
+	* @param academyid 
+	*/ 
+	public RTeacher(Long academyid) {
+		super();
+		this.academyid = academyid;
+	}
+
+
 	/** full constructor */
 	public RTeacher(String name, String tno, String title, String dep,
 			String direction, String degree, Long schoolid, Long academyid,
