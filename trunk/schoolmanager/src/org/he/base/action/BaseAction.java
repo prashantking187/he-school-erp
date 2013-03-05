@@ -11,11 +11,15 @@ package org.he.base.action;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.he.base.service.BaseService;
 import org.he.common.vo.PageBean;
+import org.rschool.vo.User;
 
+import com.opensymphony.xwork2.ActionContext;
 import com.opensymphony.xwork2.ActionSupport;
+
 
 /** 
  * @ClassName: BaseAction 
@@ -25,6 +29,9 @@ import com.opensymphony.xwork2.ActionSupport;
  *  
  */
 public class BaseAction extends ActionSupport {
+	public Map<String,Object> session = ActionContext.getContext().getSession();
+	public Map<String,Object> request = (Map)ActionContext.getContext().get("request");
+	public User user = (User)session.get("user");
 	//began of 上传文件属性
 	private List < File > upload = new ArrayList < File > ();
     private List < String > uploadFileNames = new ArrayList < String > ();

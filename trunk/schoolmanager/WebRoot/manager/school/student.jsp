@@ -174,7 +174,12 @@
 				</div>
 
 				<div class="right_content">
-
+					<s:if test="status==1">
+						<div class="valid_box">${message } </div>
+					</s:if>
+					<s:if test="status==2">
+						<div class="error_box">${message } </div> 
+					</s:if>
 
 					<h2>学生信息详情</h2>
 
