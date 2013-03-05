@@ -22,13 +22,15 @@
 							</li>
 							<li><a href="manager/school/teacherList.jsp" title="">教师管理</a>
 							</li>
+							<li><a href="manager/school/upload/teacher.jsp" title="">信息上传</a>
+							</li>
 					</li>
 					<li><a href="" title="">Lorem ipsum dolor sit amet</a>
 					</li>
 				</ul>
 
 				<!--[if lte IE 6]></td></tr></table></a><![endif]-->
-				</li>
+				<li>uan</li>
 				<li><a href="login.html">学生管理<!--[if IE 7]><!-->
 				</a>
 				<!--<![endif]--> <!--[if lte IE 6]><table><tr><td><![endif]--> <!--[if lte IE 6]></td></tr></table></a><![endif]-->

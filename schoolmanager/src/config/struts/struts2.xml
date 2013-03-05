@@ -29,7 +29,6 @@
 				<interceptor-ref name="jcaptcha"></interceptor-ref>
 			</interceptor-stack>
 		</interceptors>
-
 	</package>
 
 	<package name="schoolmgr" namespace="/school" extends="base">
@@ -63,6 +62,14 @@
 		</action>
 		<action name="showteacherpage" class="org.rschool.action.SchoolAction" 
 			method="getTeacherPage">
+			<result>/manager/school/teacherList.jsp</result>	
+		</action>
+		<action name="uploadteacher" class="org.rschool.action.SchoolAction" 
+			method="batchAddTeacher">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">application/octet-stream</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
 			<result>/manager/school/teacherList.jsp</result>	
 		</action>
 	</package>

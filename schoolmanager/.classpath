@@ -51,7 +51,7 @@
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/struts2-spring-plugin-2.2.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/xwork-core-2.2.1.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/ojdbc6.jar"/>
-	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/ralasafe-1.2-v20110914.jar"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/ralasafe-1.2-v20110914.jar" sourcepath="D:/download/ralasafe_src-1.2-v20110914.zip"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/bsh-2.0b4.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/castor-1.2-anttasks.jar"/>
 	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/castor-1.2-codegen.jar"/>

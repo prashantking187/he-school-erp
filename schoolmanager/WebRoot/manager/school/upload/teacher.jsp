@@ -93,77 +93,26 @@
 
 					<div class="sidebarmenu">
 
-						<a class="menuitem submenuheader" href="">添加教师</a> <a
-							class="menuitem" href="manager/school/teacher.jsp">添加教师</a> <a class="menuitem" href="">
-						</a> <a class="menuitem_green" href="">教师列表 </a> <a class="menuitem_red"
-							href=""></a>
-
-					</div>
-
-
-					<div class="sidebar_box">
-						<div class="sidebar_box_top"></div>
-						<div class="sidebar_box_content">
-							<h3>User help desk</h3>
-							<img src="manager/back_css/images/info.png" alt="" title=""
-								class="sidebar_icon_right" />
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua.</p>
-						</div>
-						<div class="sidebar_box_bottom"></div>
-					</div>
-
-					<div class="sidebar_box">
-						<div class="sidebar_box_top"></div>
-						<div class="sidebar_box_content">
-							<h4>Important notice</h4>
-							<img src="manager/back_css/images/notice.png" alt="" title=""
-								class="sidebar_icon_right" />
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua.</p>
-						</div>
-						<div class="sidebar_box_bottom"></div>
-					</div>
-
-					<div class="sidebar_box">
-						<div class="sidebar_box_top"></div>
-						<div class="sidebar_box_content">
-							<h5>Download photos</h5>
-							<img src="manager/back_css/images/photo.png" alt="" title=""
-								class="sidebar_icon_right" />
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua.</p>
-						</div>
-						<div class="sidebar_box_bottom"></div>
-					</div>
-
-					<div class="sidebar_box">
-						<div class="sidebar_box_top"></div>
-						<div class="sidebar_box_content">
-							<h3>To do List</h3>
-							<img src="manager/back_css/images/info.png" alt="" title=""
-								class="sidebar_icon_right" />
+						<a class="menuitem submenuheader" href="">教师信息</a>
+						<div class="submenu">
 							<ul>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing
-									elit.</li>
-								<li>Lorem ipsum dolor sit ametconsectetur <strong>adipisicing</strong>
-									elit, sed do eiusmod tempor incididunt ut labore et dolore
-									magna aliqua.</li>
-								<li>Lorem ipsum dolor sit amet, consectetur <a href="#">adipisicing</a>
-									elit.</li>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing
-									elit.</li>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing
-									elit.</li>
-								<li>Lorem ipsum dolor sit amet, consectetur adipisicing
-									elit.</li>
+								<li><a href="">教师信息上传</a></li>
+								<li><a href="">教师信息下载</a>
+								</li>
 							</ul>
 						</div>
-						<div class="sidebar_box_bottom"></div>
+						<a class="menuitem submenuheader"
+							href="manager/school/teacher.jsp">学生信息</a>
+						<div class="submenu">
+							<ul>
+								<li><a href="">学生信息上传</a></li>
+								<li><a href="">学生信息下载</a>
+								</li>
+							</ul>
+						</div>
 					</div>
+
+
 
 
 				</div>
@@ -176,106 +125,23 @@
 						<div class="error_box">${message } </div> 
 					</s:if>
 
-					<h2>学生信息详情</h2>
+					<h2>教师信息上传</h2>
 					<div class="form">
-						<s:form action="%{id>0?'updateteacher':'addteacher'}"
+						<s:form action="uploadteacher"
 							enctype="multipart/form-data" namespace="/school" method="post"
-							theme="simple"  cssClass="niceform">
-							<s:hidden name="id"></s:hidden>
-							<fieldset>
+							theme="simple" cssClass="niceform">
 								<dl>
 									<dt>
-										<label for="name">姓名:</label>
-									</dt>
-									<dd>
-										<input type="text" name="teacher.name" id="" size="54"
-											value="<s:property value="teacher.name" />  " />
-									</dd>
-								</dl>
-								<dl>
-									<dt>
-										<label for="email">所属学校:</label>
-									</dt>
-									<dd>
-										<input type="text" name="" id="" size="54" />
-									</dd>
-								</dl>
-								<dl>
-									<dt>
-										<label>编号:</label>
-									</dt>
-									<dd>
-										<input type="text" name="teacher.tno" id="" size="54" value="<s:property value="teacher.tno" />" />
-									</dd>
-								</dl>
-								<dl>
-									<dt>
-										<label for="email">专业:</label>
-									</dt>
-									<dd>
-										<input type="text" name="" id="" size="54" />
-									</dd>
-								</dl>
-								<dl>
-									<dt>
-										<label for="email">联系电话:</label>
-									</dt>
-									<dd>
-										<input type="text" name="" id="" size="54" />
-									</dd>
-								</dl>
-								<dl>
-									<dt>
-										<label for="email">email:</label>
-									</dt>
-									<dd>
-										<input type="text" name="" id="" size="54" />
-									</dd>
-								</dl>
-								<dl>
-									<dt>
-										<label for="email">qq:</label>
-									</dt>
-									<dd>
-										<input type="text" name="" id="" size="54" />
-									</dd>
-								</dl>
-								<dl>
-									<dt>
-										<label for="upload">照片:</label>
+										<label for="upload">上传:</label>
 									</dt>
 									<dd>
 										<input type="file" name="upload" id="upload" />
 									</dd>
 								</dl>
 
-								<dl>
-									<dt>
-										<label for="interests">爱好:</label>
-									</dt>
-									<dd>
-										<textarea name="teacher.hobby" id="comments" rows="5" cols="36" ><s:property value="teacher.hobby" /></textarea>
-									</dd>
-								</dl>
-
-
-
-
-
-
-								<dl>
-									<dt>
-										<label for="comments">备注:</label>
-									</dt>
-									<dd>
-										<textarea name="comments" id="comments" rows="5" cols="36"></textarea>
-									</dd>
-								</dl>
-
-
 
 								<dl class="submit">
-									<input type="submit" name="submit" id="submit" value="提交"   />
+									<input type="submit" name="submit" id="submit" value="提交" />
 								</dl>
 
 
