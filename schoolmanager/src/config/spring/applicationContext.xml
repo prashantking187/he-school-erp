@@ -95,7 +95,8 @@
 	<import resource="classpath:config/spring/base.xml" />
 	<!-- 引入dao层配置 -->
 	<import resource="classpath:config/spring/dao.xml" />
-
+	<!-- 引入office工作组件 -->
+	<import resource="classpath:config/spring/office.xml"/>
 	<!-- 定义业务逻辑组件模板 -->
 	<!-- 为之注入DAO组件 -->
 	<bean id="serviceTemplate" abstract="true" lazy-init="true"
