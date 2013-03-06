@@ -21,6 +21,7 @@ import org.rschool.entity.hibernate.RClass;
 import org.rschool.entity.hibernate.RSchool;
 import org.rschool.entity.hibernate.RStudent;
 import org.rschool.entity.hibernate.RTeacher;
+import org.rschool.office.service.StudentExcelService;
 import org.rschool.office.service.TeacherExcelService;
 import org.rschool.service.BackPageService;
 
@@ -37,6 +38,7 @@ import com.opensymphony.xwork2.ActionSupport;
 public class SchoolAction extends BaseAction {
 	private BackPageService backPageService;// 分页服务对象
 	private TeacherExcelService teacherExcelService;// 教师excel服务对象
+	private StudentExcelService studentExcelService;//学生excel服务对象
 	private String college;// 学校名称
 	private String sclass;// 班号
 	private RStudent student;// 学生信息
@@ -181,7 +183,7 @@ public class SchoolAction extends BaseAction {
 	public String batchAddTeacher() throws Exception {
 		// Long academyid = user.getAcademyId();
 		// Long schoolid = user.getSchoolId();
-		for (int i = 0;i<getUpload().size();i++) {
+		for (int i = 0; i < getUpload().size(); i++) {
 			File file = getUpload().get(i);
 			String fileName = getUploadFileName().get(i);
 			InputStream input = new FileInputStream(file);
@@ -195,11 +197,12 @@ public class SchoolAction extends BaseAction {
 				if (teacher.getName() == null
 						|| "".equals(teacher.getName().trim())) {
 					setStatus(2);
-					setMessage("上传失败！\n     请在"+fileName+"表格第" + (j+8)+"行处填入教师姓名");
+					setMessage("上传失败！\n     请在" + fileName + "表格第" + (j + 8)
+							+ "行处填入教师姓名");
 					break;
-				} 
-					setStatus(1);
-					setMessage("上传成功！");
+				}
+				setStatus(1);
+				setMessage("上传成功！");
 
 				// teacher.setSchoolid(schoolid);
 				// if(!("".equals(academyid)||null==academyid)){
@@ -207,8 +210,44 @@ public class SchoolAction extends BaseAction {
 				// }
 				System.out.println(teacher.getName());
 			}
-			 baseService.save(teacherList);
+			baseService.save(teacherList);
 			teacherList.clear();
+		}
+		return SUCCESS;
+	}
+
+	public String batchAddStudent() throws Exception{
+		// Long academyid = user.getAcademyId();
+		// Long schoolid = user.getSchoolId();
+		for (int i = 0; i < getUpload().size(); i++) {
+			File file = getUpload().get(i);
+			String fileName = getUploadFileName().get(i);
+			InputStream input = new FileInputStream(file);
+			try {
+				studentList = studentExcelService.getStudentList(input);
+			} catch (Exception e) {
+				setMessage("上传失败！\n     " + e.getMessage());
+			}
+			for (int j = 0; j < studentList.size(); j++) {
+				student = studentList.get(j);
+				if (student.getName() == null
+						|| "".equals(student.getName().trim())) {
+					setStatus(2);
+					setMessage("上传失败！\n     请在" + fileName + "表格第" + (j + 8)
+							+ "行处填入学生姓名");
+					break;
+				}
+				setStatus(1);
+				setMessage("上传成功！");
+
+				// teacher.setSchoolid(schoolid);
+				// if(!("".equals(academyid)||null==academyid)){
+				// teacher.setAcademyid(academyid);
+				// }
+				System.out.println(student.getName());
+			}
+			baseService.save(studentList);
+			studentList.clear();
 		}
 		return SUCCESS;
 	}
@@ -320,6 +359,21 @@ public class SchoolAction extends BaseAction {
 	 */
 	public void setStudent(RStudent student) {
 		this.student = student;
+	}
+
+	
+	/** 
+	 * @return studentExcelService 
+	 */
+	public StudentExcelService getStudentExcelService() {
+		return studentExcelService;
+	}
+
+	/** 
+	 * @param studentExcelService 要设置的 studentExcelService 
+	 */
+	public void setStudentExcelService(StudentExcelService studentExcelService) {
+		this.studentExcelService = studentExcelService;
 	}
 
 	/**

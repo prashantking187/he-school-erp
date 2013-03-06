@@ -70,7 +70,16 @@
 				<param name="allowedTypes">application/octet-stream</param>
 			</interceptor-ref>
 			<interceptor-ref name="defaultStack"></interceptor-ref>
-			<result>/manager/school/teacherList.jsp</result>	
+			<result>/manager/school/upload/taecher.jsp</result>	
 		</action>
+		<action name="uploadstudent" class="org.rschool.action.SchoolAction" 
+			method="batchAddStudent">
+			<interceptor-ref name="fileUpload">
+				<param name="allowedTypes">application/octet-stream</param>
+			</interceptor-ref>
+			<interceptor-ref name="defaultStack"></interceptor-ref>
+			<result>/manager/school/upload/student.jsp</result>	
+		</action>
+		
 	</package>
 </struts>
